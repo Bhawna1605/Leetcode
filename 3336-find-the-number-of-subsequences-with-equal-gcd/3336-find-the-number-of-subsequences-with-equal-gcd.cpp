@@ -1,6 +1,6 @@
 class Solution {
 public:
-int MOD=1e9+7;
+    int MOD=1e9+7;
     int subsequencePairCount(vector<int>& nums) {
         int n=nums.size();
         int maxEl=*max_element(begin(nums),end(nums));
