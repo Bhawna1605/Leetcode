@@ -2,17 +2,21 @@ class Solution {
 public:
     string stoneGameIII(vector<int>& stoneValue) {
         int n = stoneValue.size();
-        vector<int> t(n+1);
-        //t[i] = Alice - Bob
+        int a = 0;
+        int b = 0;
+        int c = 0;
         for(int i = n-1; i>=0; i--) {
-            t[i] = stoneValue[i] - t[i+1];
-            if(i+2 <= n)
-                t[i] = max(t[i], stoneValue[i] + stoneValue[i+1] - t[i+2]);
-            if(i+3 <= n)
-                t[i] = max(t[i], stoneValue[i] + stoneValue[i+1] + stoneValue[i+2] - t[i+3]);
-        
+            int result = INT_MIN;
+            result = max(result, stoneValue[i] - a);
+            if(i+1<n)
+                result = max(result, stoneValue[i] + stoneValue[i+1] - b);
+            if(i+2<n)
+                result = max(result, stoneValue[i] + stoneValue[i+1] + stoneValue[i+2] - c);
+            c = b;
+            b = a;
+            a = result;
         }
-        int diff = t[0];
+        int diff = a;
         if(diff < 0)
             return "Bob";
         else if(diff > 0)
