@@ -1,12 +1,14 @@
 class Solution {
 public:
     int n;
-    int t[2][101][101]; //t[2][n+1][n+1] - 2*(n+1)*(n+1) ~n^2 * n ~ O(n^3)
+    int t[2][101][101];//t[2][n+1][n+1]
     int solveForAlice(vector<int>& piles, int person, int i, int M) {
-        if(i >= n)
+        if(i >= n){
             return 0;
-        if(t[person][i][M] != -1)
+        }
+        if(t[person][i][M] != -1){
             return t[person][i][M];
+        }
         int result = (person == 1) ? -1 : INT_MAX;
         int stones = 0;
         for(int x = 1; x <= min(2*M, n-i); x++) {
