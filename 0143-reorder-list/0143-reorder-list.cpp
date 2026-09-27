@@ -9,7 +9,8 @@ public:
         ListNode* tempn = curr->next;
         if(tempn == NULL) {
             return;
-        } else if(head == curr) {
+        } 
+        else if(head == curr) {
             head->next = NULL;
             return;
         }
