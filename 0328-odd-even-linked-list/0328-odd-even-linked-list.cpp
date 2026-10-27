@@ -14,6 +14,5 @@ public:
         }
         ODD->next = evenStart;
         return head;
-        
     }
 };
